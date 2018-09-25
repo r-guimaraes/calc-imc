@@ -3,6 +3,7 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Calculadora de IMC com JSP</title>
@@ -12,22 +13,49 @@
 </head>
 <body>
 
-<% String altura = request.getParameter("altura"); %>
-<% String idade = request.getParameter("idade"); %>
-
 <div class="container">
     <h1>Calcule seu IMC</h1>
-    <h4>Sua altura: <%= altura %></h4>
-    <h4>Sua idade: <%= idade %></h4>
+    <p>
+        Calcule seu IMC dividindo o peso (em quilogramas) pela altura (em metros) ao quadrado.
+    </p>
+
     <form method="POST">
         <fieldset>
             <div class="form-group">
-                <input class="form-control" placeholder="Informe sua altura" name="altura" type="text">
-                <input class="form-control" placeholder="Informe sua idade" name="idade" type="text">
+                <input class="form-control" placeholder="Informe sua altura (em cm)" name="altura" required>
+                <br>
+                <input class="form-control" placeholder="Informe seu peso (em Kg)" name="peso" required>
+                <br>
+                <input class="form-control" placeholder="Informe sua idade" name="idade" type="number" required>
             </div>
             <button type="submit" class="btn btn-sm btn-success">Calcular</button>
         </fieldset>
     </form>
+    
+    <%
+        String alturaStr = request.getParameter("altura");
+        String pesoStr = request.getParameter("peso");
+        String idadeStr = request.getParameter("idade");
+
+        if (pesoStr != null) {
+            Float peso = Float.parseFloat(pesoStr);
+            if (peso instanceof Float && alturaStr != null) {
+                Float alturaMetros = Float.parseFloat(alturaStr);
+                Float a = alturaMetros/100;
+
+                Float IMC = (peso / (a * a));
+                out.print("<hr><p><strong>Seu IMC: </strong>" + IMC + "</p>");
+
+                if (idadeStr != null) {
+                    int idade = Integer.parseInt(idadeStr);
+                    if (idade >= 29 && IMC >= 29.0) {
+                        out.print("Cuidado! Nessa idade o metabolismo diminui, e você já está obeso!");
+                    }
+                }
+            }
+        }
+    %>
+
 </div>
 
 <!-- Optional JavaScript -->
