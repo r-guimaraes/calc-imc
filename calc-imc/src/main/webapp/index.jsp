@@ -18,6 +18,7 @@
     <h1>Calcule seu IMC</h1>
     <p>
         O cálculo do IMC é obtido dividindo o peso (em quilogramas) pela altura (em metros) ao quadrado.
+        Para saber se está em forma, basta preencher os campos abaixo:
     </p>
 
     <form method="POST">
@@ -41,28 +42,33 @@
         if (pesoStr != null) {
             Float peso = Float.parseFloat(pesoStr);
             if (peso instanceof Float && alturaStr != null) {
-                Float alturaMetros = Float.parseFloat(alturaStr);
-                Float a = alturaMetros/100;
+                Float alturaCM = Float.parseFloat(alturaStr);
+                Float altura = alturaCM/100;
 
-                Float IMC = (peso / (a * a));
+                Float IMC = (peso / (altura * altura));
                 out.print("<hr><p><strong>Seu IMC: </strong>" + IMC + "</p>");
 
                 if (idadeStr != null) {
                     int idade = Integer.parseInt(idadeStr);
                     if (idade >= 29 && IMC >= 29.0) {
-                        out.print("Cuidado! Nessa idade o metabolismo diminui, e você já está obeso!");
+                        out.print("<div class='danger'>Cuidado! Nessa idade o metabolismo diminui, e você já está obeso!</div>");
                     }
                 }
             }
             %>
             <h5>Confira a imagem de referência sobre os valores do IMC</h5>
-            <pre>
-                <img src="https://static.tuasaude.com/media/article/jn/ag/imc_30445_l.jpg" alt="Referência IMC">
-            </pre>
+            <p>
+                <img class="img-thumbnail" src="https://static.tuasaude.com/media/article/jn/ag/imc_30445_l.jpg" alt="Referência IMC">
+            </p>
         <% 
         }
     %>
-    
+    <section id="footer">
+        <strong>Desenvolvido por </strong>
+        <a href="https://github.com/r-guimaraes" target="_blank"> @r-guimaraes
+            <img src="https://avatars0.githubusercontent.com/u/1596813?s=88&v=4" alt="@r-guimaraes" width="40px">
+        </a>
+    </section>
 </div>
 
 <!-- Optional JavaScript -->
