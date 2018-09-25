@@ -14,7 +14,26 @@
 </head>
 <body>
 
-<div class="container">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <a class="navbar-brand" href="#">CheckIMC</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+        <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="http://rodrigodeoliveira.net.br/calculadora_churrasco/" target="_blank">Calculadora de Churrasco</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="https://github.com/r-guimaraes">Fale Conosco</a>
+        </li>
+        </ul>
+    </div>
+</nav>
+<div class="container jumbotron">
     <h1>Calcule seu IMC</h1>
     <p>
         O cálculo do IMC é obtido dividindo o peso (em quilogramas) pela altura (em metros) ao quadrado.
@@ -58,7 +77,7 @@
             %>
             <h5>Confira a imagem de referência sobre os valores do IMC</h5>
             <p>
-                <img class="img-thumbnail" src="https://static.tuasaude.com/media/article/jn/ag/imc_30445_l.jpg" alt="Referência IMC">
+                <img class="img-thumbnail rounded mx-auto d-block" src="https://static.tuasaude.com/media/article/jn/ag/imc_30445_l.jpg" alt="Referência IMC">
             </p>
         <% 
         }

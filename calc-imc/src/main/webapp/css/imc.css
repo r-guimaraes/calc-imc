@@ -1,4 +1,5 @@
-.container { padding-top: 40px;}
+.navbar a { color: white !important; }
+.container { margin-top: 40px;}
 h5 { 
     color: goldenrod; 
     border-top: 1px solid #e3e3e3;
