@@ -65,10 +65,15 @@
                 Float altura = alturaCM/100;
 
                 Float IMC = (peso / (altura * altura));
-                out.print("<hr><p><strong>Seu IMC: </strong>" + IMC + "</p>");
+                out.print("<hr><p><strong>Seu IMC é: </strong>" + IMC + "</p>");
 
                 if (idadeStr != null) {
                     int idade = Integer.parseInt(idadeStr);
+
+                    if (IMC >= 18.5 && IMC < 25) {
+                        out.print("<div class='ok'>Parabéns! Você está no peso mais saudável! ;)</div>");
+                    }
+
                     if (idade >= 29 && IMC >= 29.0) {
                         out.print("<div class='danger'>Cuidado! Nessa idade o metabolismo diminui, e você já está obeso!</div>");
                     }
@@ -85,7 +90,7 @@
     <section id="footer">
         <strong>Desenvolvido por </strong>
         <a href="https://github.com/r-guimaraes" target="_blank"> @r-guimaraes
-            <img src="https://avatars0.githubusercontent.com/u/1596813?s=88&v=4" alt="@r-guimaraes" width="40px">
+            <img src="https://avatars0.githubusercontent.com/u/1596813?s=88&v=4" alt="@r-guimaraes" width="35px">
         </a>
     </section>
 </div>
