@@ -1,22 +1,23 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <%@ page contentType="text/html; charset=UTF-8" %>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Calculadora de IMC com JSP</title>
+    <title>Calculadora de IMC com JSP</title>    
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/imc.css">
 </head>
 <body>
 
 <div class="container">
     <h1>Calcule seu IMC</h1>
     <p>
-        Calcule seu IMC dividindo o peso (em quilogramas) pela altura (em metros) ao quadrado.
+        O cálculo do IMC é obtido dividindo o peso (em quilogramas) pela altura (em metros) ao quadrado.
     </p>
 
     <form method="POST">
@@ -53,9 +54,15 @@
                     }
                 }
             }
+            %>
+            <h5>Confira a imagem de referência sobre os valores do IMC</h5>
+            <pre>
+                <img src="https://static.tuasaude.com/media/article/jn/ag/imc_30445_l.jpg" alt="Referência IMC">
+            </pre>
+        <% 
         }
     %>
-
+    
 </div>
 
 <!-- Optional JavaScript -->
